@@ -85,26 +85,27 @@
           </div>
         </div>
         <div class="tab-pane fade" id="pills-ex02" role="tabpanel" aria-labelledby="pills-ex02-tab" tabindex="0">
-          <select class="form-select mb-3" id="ex02_user" aria-label="Default select example">
-            <option selected>Ai sử dụng máy tính?</option>
-            <option value="B">Bố</option>
-            <option value="M">Mẹ</option>
-            <option value="A">Anh trai</option>
-            <option value="E">Em gái</option>
-          </select>
-          <button type="button" class="btn btn-primary w-100 mb-3" id="ex01_submitBtn" onclick="ex02()">KẾT QUẢ</button>
+          <div class="mb-3">
+            <label for="ex02_year" class="form-label">Nhập năm</label>
+            <input type="number" class="form-control" id="ex02_year" />
+          </div>
+          <div class="mb-3">
+            <label for="ex02_month" class="form-label">Nhập tháng</label>
+            <input type="number" class="form-control" id="ex02_month" />
+          </div>
+          <button type="button" class="btn btn-primary w-100 mb-3" id="ex01_submitBtn" onclick="ex02()">TÍNH NGÀY</button>
           <div class="alert-primary" id="ex02_result" role="alert"></div>
           <div class="alert alert-secondary" role="alert">
             <h1>MÔ HÌNH 3 KHỐI</h1>
             <p>
-              - Đầu vào: Người dùng chọn Ai sử dụng máy tính<br />- Xử lý: Dựa vào lựa chọn của người dùng để hiển thị ra màn hình "Xin chào + Người
-              sử dụng máy tính"<br />- Đầu ra: Hiển thị ra câu chào trên màn hình
+              - Đầu vào: Nhập vào Năm và Tháng cần tính ngày<br />- Xử lý: Dùng hàm getDay dựa trên Năm và Tháng người dùng nhập vào để tính số ngày
+              của tháng<br />- Đầu ra: Hiển thị số ngày của tháng trong năm đó
             </p>
           </div>
         </div>
         <div class="tab-pane fade" id="pills-ex03" role="tabpanel" aria-labelledby="pills-ex03-tab" tabindex="0">
           <div class="mb-3">
-            <label for="ex03_num01" class="form-label">Nhập số nguyên có 3 chữ số</label>
+            <label for="ex03_num" class="form-label">Nhập số nguyên có 3 chữ số</label>
             <input type="number" class="form-control" id="ex03_num" />
           </div>
           <button type="button" class="btn btn-primary w-100 mb-3" id="ex03_submitBtn" onclick="ex03()">ĐỌC SỐ</button>
@@ -112,34 +113,53 @@
           <div class="alert alert-secondary" role="alert">
             <h1>MÔ HÌNH 3 KHỐI</h1>
             <p>
-              - Đầu vào: Nhập vào 3 số<br />- Xử lý: <br />+ Kiểm tra từng số một <br />+ Nếu là số chẵn (chia cho 2 dư 0) thì tăng biến đếm số chẵn
-              lên 1 đơn vị <br />+ Ngược lại, tăng biến đếm số lẻ lên 1 đơn vị <br />
-              - Đầu ra: Hiển thị ra màn hình số số chẵn và số số lẻ
+              - Đầu vào: Nhập vào số có 3 chữ số<br />- Xử lý: <br />+ Tách số thành hằng trăm, chục, đơn vị<br />+ Đối với hàng trăm thì đọc là "Một
+              trăm" -> "Chín trăm"<br />+ Đối với hàng chục: Nếu là số khác 0 thì đọc là "Mười", "Hai mươi" -> "Ba mươi" ; Nếu là số 0 thì đọc là
+              "lẻ"<br />+ Đối với hàng đơn vị: Đọc là "một" -> "chín" ; đặc biệt số 5 đọc là "lăm"<br />+ Trường hợp hàng chục là số 0: đọc số 5 là
+              "năm" như bình thường<br />+ Nếu cả hàng chục và đơn vị đều là số 0 thì bỏ qua đọc hàng chục và đơn vị -> Đọc số tròn trăm<br />+ Lưu
+              cách đọc 3 chữ số vào 3 biến khác nhau<br />
+              - Đầu ra: Hiển thị ra màn hình cách đọc bằng cách nối chuỗi 3 biến trên
             </p>
           </div>
         </div>
         <div class="tab-pane fade" id="pills-ex04" role="tabpanel" aria-labelledby="pills-ex04-tab" tabindex="0">
           <div class="mb-3">
-            <label for="ex04_edge01" class="form-label">Nhập độ dài cạnh thứ 01</label>
-            <input type="number" class="form-control" id="ex04_edge01" />
+            <label for="ex04_std01_name" class="form-label">Nhập tên Học sinh 01</label>
+            <input type="text" class="form-control" id="ex04_std01_name" />
           </div>
           <div class="mb-3">
-            <label for="ex04_edge02" class="form-label">Nhập độ dài cạnh thứ 02</label>
-            <input type="number" class="form-control" id="ex04_edge02" />
+            <label for="ex04_std01_coor" class="form-label">Nhập toạ độ Học sinh 01 (x,y)</label>
+            <input type="text" class="form-control" id="ex04_std01_coor" />
           </div>
           <div class="mb-3">
-            <label for="ex04_edge03" class="form-label">Nhập độ dài cạnh thứ 03</label>
-            <input type="number" class="form-control" id="ex04_edge03" />
+            <label for="ex04_std02_name" class="form-label">Nhập tên Học sinh 02</label>
+            <input type="text" class="form-control" id="ex04_std02_name" />
           </div>
-          <button type="button" class="btn btn-primary w-100 mb-3" id="ex04_submitBtn" onclick="ex04()">KIỂM TRA TAM GIÁC</button>
+          <div class="mb-3">
+            <label for="ex04_std02_coor" class="form-label">Nhập toạ độ Học sinh 02 (x,y)</label>
+            <input type="text" class="form-control" id="ex04_std02_coor" />
+          </div>
+          <div class="mb-3">
+            <label for="ex04_std02_name" class="form-label">Nhập tên Học sinh 03</label>
+            <input type="text" class="form-control" id="ex04_std03_name" />
+          </div>
+          <div class="mb-3">
+            <label for="ex04_std03_coor" class="form-label">Nhập toạ độ Học sinh 03 (x,y)</label>
+            <input type="text" class="form-control" id="ex04_std03_coor" />
+          </div>
+          <div class="mb-3">
+            <label for="ex04_sch_coor" class="form-label">Nhập toạ độ Trường (x,y)</label>
+            <input type="text" class="form-control" id="ex04_sch_coor" />
+          </div>
+          <button type="button" class="btn btn-primary w-100 mb-3" id="ex04_submitBtn" onclick="ex04()">KIỂM TRA</button>
           <div class="alert-primary" id="ex04_result" role="alert"></div>
           <div class="alert alert-secondary" role="alert">
             <h1>MÔ HÌNH 3 KHỐI</h1>
             <p>
-              - Đầu vào: Nhập vào chiều dài 3 cạnh của tam giác<br />- Xử lý: <br />+ Nều là tam giác đều thì 3 cạnh bằng nhau <br />+ Nếu là tam giác
-              cân thì 2 trong 3 cạnh bằng nhau <br />+ Nếu là tam giác vuông thì tổng bình phương 2 cạnh bằng bình phương cạnh còn lại <br />+ Nếu
-              không thoả 3 trường hợp trên thì là tam giác thường <br />
-              - Đầu ra: Hiển thị ra màn hình loại tam giác tương ứng với chiều dài 3 cạnh đã nhập
+              - Đầu vào: Nhập vào Tên, toạ độ của 3 học sinh và toạ độ trường học<br />- Xử lý: <br />+ Sử dụng công thức tính độ dài 2 điểm trong hệ
+              toạ độ X,Y để tính khoảng cách<br />+ Tìm ra toạ độ có khoảng cách lớn nhất trong 3 điểm<br />+ Trích xuất tên học sinh tương ứng với
+              toạ độ bằng Classes <br /><br />
+              - Đầu ra: Hiển thị ra màn hình tên học sinh có khoảng cách xa nhất
             </p>
           </div>
         </div>

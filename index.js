@@ -1,20 +1,15 @@
-function checkOddEven(num) {
-  if (num % 2 === 0) {
-    countEven++
-  } else {
-    countOdd++
-  }
+function splitCoorX(str) {
+  return str.slice(1)
 }
 
-function checkTriangle(a, b, c) {
-  if (a === b && b === c) {
-    return `Tam giác đều`
-  } else if (a === b || b === c || a === c) {
-    return `Tam giác cân`
-  } else if (a * a === b * b + c * c || b * b === a * a + c * c || c * c === a * a + b * b) {
-    return `Tam giác vuông`
-  } else {
-    return `Tam giác thường`
+function splitCoorX(str) {
+  return str.slice(-1)
+}
+
+function distanceCompare(item) {
+  if (item.distance > maxDistance) {
+    maxDistance = item.distance
+    maxDistanceStd = item.name
   }
 }
 
@@ -30,27 +25,11 @@ function ex01() {
 }
 
 function ex02() {
-  let ex02_user = document.getElementById("ex02_user").value
-  let ex02_result = document.getElementById("ex02_result")
-
-  switch (ex02_user) {
-    case `B`:
-      ex02_user = `Bố`
-      break;
-    case `M`:
-      ex02_user = `Mẹ`
-      break;
-    case `A`:
-      ex02_user = `Anh trai`
-      break;
-    case `E`:
-      ex02_user = `Em gái`
-      break;
-    default:
-      break;
-  }
+  let ex02_year = document.getElementById("ex02_year").value
+  let ex02_month = document.getElementById("ex02_month").value
+  days = new Date(ex02_year, ex02_month, 0).getDate()
   ex02_result.classList.add("alert")
-  ex02_result.innerHTML = `Xin chào, ${ex02_user} !!!`
+  ex02_result.innerHTML = `Tháng ${ex02_month}/${ex02_year} có ${days} ngày`
 }
 
 function ex03() {
@@ -124,7 +103,7 @@ function ex03() {
       tens_read = "chín mươi"
       break;
   }
-  if (tens !== 0) {
+  if (tens !== 0 && tens !== 1) {
     switch (units) {
       case 1:
         units_read = "mốt"
@@ -190,10 +169,37 @@ function ex03() {
 }
 
 function ex04() {
-  let ex04_edge01 = parseInt(document.getElementById("ex04_edge01").value)
-  let ex04_edge02 = parseInt(document.getElementById("ex04_edge02").value)
-  let ex04_edge03 = parseInt(document.getElementById("ex04_edge03").value)
+  let ex04_std01_name = document.getElementById("ex04_std01_name").value
+  let ex04_std01_coor = document.getElementById("ex04_std01_coor").value
+  let ex04_std02_name = document.getElementById("ex04_std02_name").value
+  let ex04_std02_coor = document.getElementById("ex04_std02_coor").value
+  let ex04_std03_name = document.getElementById("ex04_std03_name").value
+  let ex04_std03_coor = document.getElementById("ex04_std03_coor").value
+  let ex04_sch_coor = document.getElementById("ex04_sch_coor").value
+  window.sch_X = ex04_sch_coor.slice(0, 1)
+  window.sch_Y = ex04_sch_coor.slice(-1)
+  class Std {
+    constructor(name, x, y) {
+      this.name = name
+      this.x = x
+      this.y = y
+    }
+    get distance() {
+      return this.distanceCal()
+    }
+    distanceCal() {
+      return Math.sqrt((this.x - sch_X) ** 2 + (this.y - sch_Y) ** 2)
+    }
+  }
+  let std01 = new Std(ex04_std01_name, ex04_std01_coor.slice(0, 1), ex04_std01_coor.slice(-1))
+  let std02 = new Std(ex04_std02_name, ex04_std02_coor.slice(0, 1), ex04_std02_coor.slice(-1))
+  let std03 = new Std(ex04_std03_name, ex04_std03_coor.slice(0, 1), ex04_std03_coor.slice(-1))
+  window.maxDistance = 0
+  window.maxDistanceStd = ""
+  distanceCompare(std01)
+  distanceCompare(std02)
+  distanceCompare(std03)
   let ex04_result = document.getElementById("ex04_result")
   ex04_result.classList.add("alert")
-  ex04_result.innerHTML = `Đây là một ${checkTriangle(ex04_edge01, ex04_edge02, ex04_edge03)}`
+  ex04_result.innerHTML = `${maxDistanceStd}`
 }
