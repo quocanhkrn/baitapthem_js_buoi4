@@ -54,17 +54,139 @@ function ex02() {
 }
 
 function ex03() {
-  let ex03_num01 = parseInt(document.getElementById("ex03_num01").value)
-  let ex03_num02 = parseInt(document.getElementById("ex03_num02").value)
-  let ex03_num03 = parseInt(document.getElementById("ex03_num03").value)
-  let ex03_result = document.getElementById("ex03_result")
-  window.countEven = 0
-  window.countOdd = 0
-  checkOddEven(ex03_num01)
-  checkOddEven(ex03_num02)
-  checkOddEven(ex03_num03)
+  let ex03_num = parseInt(document.getElementById("ex03_num").value)
+  hundreds = Math.floor(ex03_num / 100)
+  tens = Math.floor(ex03_num / 10) % 10
+  units = ex03_num % 10
+  let hundreds_read = ""
+  let tens_read = ""
+  let units_read = ""
+  switch (hundreds) {
+    case 1:
+      hundreds_read = "Một trăm"
+      break;
+    case 2:
+      hundreds_read = "Hai trăm"
+      break;
+    case 3:
+      hundreds_read = "Ba trăm"
+      break;
+    case 4:
+      hundreds_read = "Bốn trăm"
+      break;
+    case 5:
+      hundreds_read = "Năm trăm"
+      break;
+    case 6:
+      hundreds_read = "Sáu trăm"
+      break;
+    case 7:
+      hundreds_read = "Bảy trăm"
+      break;
+    case 8:
+      hundreds_read = "Tám trăm"
+      break;
+    case 9:
+      hundreds_read = "Chín trăm"
+      break;
+  }
+  switch (tens) {
+    case 0:
+      if (units === 0) {
+        tens_read = ""
+      } else { tens_read = "lẻ" }
+      break;
+    case 1:
+      tens_read = "mười"
+      break;
+    case 2:
+      tens_read = "hai mươi"
+      break;
+    case 3:
+      tens_read = "ba mươi"
+      break;
+    case 4:
+      tens_read = "bốn mươi"
+      break;
+    case 5:
+      tens_read = "năm mươi"
+      break;
+    case 6:
+      tens_read = "sáu mươi"
+      break;
+    case 7:
+      tens_read = "bảy mươi"
+      break;
+    case 8:
+      tens_read = "tám mươi"
+      break;
+    case 9:
+      tens_read = "chín mươi"
+      break;
+  }
+  if (tens !== 0) {
+    switch (units) {
+      case 1:
+        units_read = "mốt"
+        break;
+      case 2:
+        units_read = "hai"
+        break;
+      case 3:
+        units_read = "ba"
+        break;
+      case 4:
+        units_read = "bốn"
+        break;
+      case 5:
+        units_read = "lăm"
+        break;
+      case 6:
+        units_read = "sáu"
+        break;
+      case 7:
+        units_read = "bảy"
+        break;
+      case 8:
+        units_read = "tám"
+        break;
+      case 9:
+        units_read = "chín"
+        break;
+    }
+  } else {
+    switch (units) {
+      case 1:
+        units_read = "một"
+        break;
+      case 2:
+        units_read = "hai"
+        break;
+      case 3:
+        units_read = "ba"
+        break;
+      case 4:
+        units_read = "bốn"
+        break;
+      case 5:
+        units_read = "năm"
+        break;
+      case 6:
+        units_read = "sáu"
+        break;
+      case 7:
+        units_read = "bảy"
+        break;
+      case 8:
+        units_read = "tám"
+        break;
+      case 9:
+        units_read = "chín"
+        break;
+    }
+  }
   ex03_result.classList.add("alert")
-  ex03_result.innerHTML = ``
+  ex03_result.innerHTML = `${hundreds_read} ${tens_read} ${units_read}`
 }
 
 function ex04() {
