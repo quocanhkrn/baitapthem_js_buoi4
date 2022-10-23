@@ -176,8 +176,8 @@ function ex04() {
   let ex04_std03_name = document.getElementById("ex04_std03_name").value
   let ex04_std03_coor = document.getElementById("ex04_std03_coor").value
   let ex04_sch_coor = document.getElementById("ex04_sch_coor").value
-  window.sch_X = ex04_sch_coor.slice(0, 1)
-  window.sch_Y = ex04_sch_coor.slice(-1)
+  window.sch_X = ex04_sch_coor.slice(0, ex04_sch_coor.indexOf(","))
+  window.sch_Y = ex04_sch_coor.slice(ex04_sch_coor.indexOf(",") + 1, ex04_sch_coor.length)
   class Std {
     constructor(name, x, y) {
       this.name = name
@@ -191,9 +191,9 @@ function ex04() {
       return Math.sqrt((this.x - sch_X) ** 2 + (this.y - sch_Y) ** 2)
     }
   }
-  let std01 = new Std(ex04_std01_name, ex04_std01_coor.slice(0, 1), ex04_std01_coor.slice(-1))
-  let std02 = new Std(ex04_std02_name, ex04_std02_coor.slice(0, 1), ex04_std02_coor.slice(-1))
-  let std03 = new Std(ex04_std03_name, ex04_std03_coor.slice(0, 1), ex04_std03_coor.slice(-1))
+  let std01 = new Std(ex04_std01_name, ex04_std01_coor.slice(0, ex04_std01_coor.indexOf(",")), ex04_std01_coor.slice(ex04_std01_coor.indexOf(",") + 1, ex04_std01_coor.length))
+  let std02 = new Std(ex04_std02_name, ex04_std02_coor.slice(0, ex04_std02_coor.indexOf(",")), ex04_std02_coor.slice(ex04_std02_coor.indexOf(",") + 1, ex04_std02_coor.length))
+  let std03 = new Std(ex04_std03_name, ex04_std03_coor.slice(0, ex04_std03_coor.indexOf(",")), ex04_std03_coor.slice(ex04_std03_coor.indexOf(",") + 1, ex04_std03_coor.length))
   window.maxDistance = 0
   window.maxDistanceStd = ""
   distanceCompare(std01)
@@ -201,5 +201,5 @@ function ex04() {
   distanceCompare(std03)
   let ex04_result = document.getElementById("ex04_result")
   ex04_result.classList.add("alert")
-  ex04_result.innerHTML = `${maxDistanceStd}`
+  ex04_result.innerHTML = `${maxDistanceStd} xa trường nhất`
 }
