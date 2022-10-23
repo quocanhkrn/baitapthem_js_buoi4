@@ -79,8 +79,8 @@
           <div class="alert alert-secondary" role="alert">
             <h1>MÔ HÌNH 3 KHỐI</h1>
             <p>
-              - Đầu vào: Nhập vào 3 số <br />- Xử lý: <br />+ Tìm số nhỏ nhất, lớn nhất trong 3 số bằng hàm toán học <br />+ Số còn lại là số ở giữa
-              <br />- Đầu ra: Hiển thị ra màn hình 3 số theo thứ tự: Số nhỏ nhất - Số ở giữa - Số lớn nhất
+              - Đầu vào: Chọn một ngày bất kì <br />- Xử lý: <br />+ Sử dụng hàm Date (thời gian, có sẵn)<br />+ Ngày hôm trước = Ngày đã chọn - 1
+              ngày <br />+ Ngày hôm sau = Ngày đã chọn + 1 ngày<br />- Đầu ra: Hiển thị ra màn hình Ngày trước đó và Ngày sau đó
             </p>
           </div>
         </div>
@@ -104,16 +104,8 @@
         </div>
         <div class="tab-pane fade" id="pills-ex03" role="tabpanel" aria-labelledby="pills-ex03-tab" tabindex="0">
           <div class="mb-3">
-            <label for="ex03_num01" class="form-label">Nhập số thứ 01</label>
-            <input type="number" class="form-control" id="ex03_num01" />
-          </div>
-          <div class="mb-3">
-            <label for="ex03_num02" class="form-label">Nhập số thứ 02</label>
-            <input type="number" class="form-control" id="ex03_num02" />
-          </div>
-          <div class="mb-3">
-            <label for="ex03_num03" class="form-label">Nhập số thứ 03</label>
-            <input type="number" class="form-control" id="ex03_num03" />
+            <label for="ex03_num01" class="form-label">Nhập số nguyên có 3 chữ số</label>
+            <input type="number" class="form-control" id="ex03_num" />
           </div>
           <button type="button" class="btn btn-primary w-100 mb-3" id="ex03_submitBtn" onclick="ex03()">ĐẾM SỐ CHẴN VÀ LẺ</button>
           <div class="alert-primary" id="ex03_result" role="alert"></div>
