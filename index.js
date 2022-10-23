@@ -19,10 +19,14 @@ function checkTriangle(a, b, c) {
 }
 
 function ex01() {
-  let ex01_date = document.getElementById("ex01_num01").value
+  let ex01_date = new Date(document.getElementById("ex01_date").value)
+  let ex01_date_before = new Date(ex01_date)
+  ex01_date_before.setDate(ex01_date_before.getDate() - 1)
+  let ex01_date_after = new Date(ex01_date)
+  ex01_date_after.setDate(ex01_date_after.getDate() + 1)
   let ex01_result = document.getElementById("ex01_result")
   ex01_result.classList.add("alert")
-  ex01_result
+  ex01_result.innerHTML = `Ngày hôm trước: ${ex01_date_before.toLocaleDateString('vi-VI')} <br/> Ngày hôm sau: ${ex01_date_after.toLocaleDateString('vi-VI')}`
 }
 
 function ex02() {
@@ -60,7 +64,7 @@ function ex03() {
   checkOddEven(ex03_num02)
   checkOddEven(ex03_num03)
   ex03_result.classList.add("alert")
-  ex03_result.innerHTML = `Có ${countEven} số chẵn và ${countOdd} số lẻ.`
+  ex03_result.innerHTML = ``
 }
 
 function ex04() {
